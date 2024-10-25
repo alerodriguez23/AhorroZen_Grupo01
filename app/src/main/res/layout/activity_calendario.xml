@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="VisualLintBounds">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,14 +24,14 @@
             android:layout_marginTop="20dp"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:text="saldo: octubre" />
+            android:text="@string/saldo_mes" />
 
         <TextView
             android:id="@+id/saldo_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="$0.00"
+            android:text="@string/monto_mes"
             android:textSize="36sp" />
 
     </LinearLayout>
@@ -71,14 +72,15 @@
                 android:id="@+id/btnCalendario"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:contentDescription="Calendario"
-                android:src="@drawable/calendario" />
+                android:contentDescription="@string/calendario_btn"
+                android:src="@drawable/calendario"
+                tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Calendario" />
+                android:text="@string/calendario" />
         </LinearLayout>
 
         <LinearLayout
@@ -92,14 +94,15 @@
                 android:id="@+id/btnCategorias"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:contentDescription="Categorías"
-                android:src="@drawable/categorie" />
+                android:contentDescription="@string/categor_as_btn"
+                android:src="@drawable/categorie"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Categorías" />
+                android:text="@string/categor_as" />
         </LinearLayout>
 
         <LinearLayout
@@ -113,14 +116,15 @@
                 android:id="@+id/btnGraficos"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:contentDescription="Gráficos"
-                android:src="@drawable/graficos" />
+                android:contentDescription="@string/gr_ficos_btn"
+                android:src="@drawable/graficos"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Gráficos" />
+                android:text="@string/gr_ficos" />
         </LinearLayout>
     </LinearLayout>
 

@@ -3,4 +3,12 @@
     <string name="usuario">Perfil</string>
     <string name="gastos">Gastos</string>
     <string name="ingresos">Ingresos</string>
+    <string name="calendario">Calendario</string>
+    <string name="gr_ficos">Gráficos</string>
+    <string name="categor_as">Categorías</string>
+    <string name="calendario_btn">Calendario</string>
+    <string name="categor_as_btn">Categorías</string>
+    <string name="gr_ficos_btn">Gráficos</string>
+    <string name="monto_mes">$0.00</string>
+    <string name="saldo_mes">saldo: octubre</string>
 </resources>
