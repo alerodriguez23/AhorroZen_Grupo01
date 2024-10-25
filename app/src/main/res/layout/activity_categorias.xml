@@ -1,57 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    tools:context=".MainActivity"
-    tools:ignore="VisualLintBounds">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="55dp"
-        android:paddingTop="25dp"
-        android:gravity="center">
-
-
-        <TextView
-            android:id="@+id/saldo_text"
+        android:layout_height="wrap_content">
+        <TabItem
+            android:id="@+id/tab_gasto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:text="@string/saldo_mes" />
-
-        <TextView
-            android:id="@+id/saldo_amount"
+            android:text="Gasto" />
+        <TabItem
+            android:id="@+id/tab_ingreso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="@string/monto_mes"
-            android:textSize="36sp" />
+            android:text="Ingreso" />
+    </TabLayout>
 
-    </LinearLayout>
-
-
-
-
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical">
-
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
-    </LinearLayout>
-
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp" />
 
     <!-- Barra inferior -->
     <LinearLayout
@@ -73,8 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/calendario_btn"
-                android:src="@drawable/calendario"
-                tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
+                android:src="@drawable/calendario" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -95,8 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/categor_as_btn"
-                android:src="@drawable/categorie"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                android:src="@drawable/categorie"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -117,8 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/gr_ficos_btn"
-                android:src="@drawable/graficos"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                android:src="@drawable/graficos" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -126,7 +97,7 @@
                 android:gravity="center"
                 android:text="@string/gr_ficos" />
         </LinearLayout>
-    </LinearLayout>
 
+    </LinearLayout>
 
 </LinearLayout>
