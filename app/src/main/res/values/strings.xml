@@ -11,4 +11,21 @@
     <string name="gr_ficos_btn">Gráficos</string>
     <string name="monto_mes">$0.00</string>
     <string name="saldo_mes">saldo: octubre</string>
+    <string name="entretenimiento">Entretenimiento</string>
+    <string name="No_semana">Semana 1</string>
+    <string name="cant_gasto">$200</string>
+    <string name="cateoria_gasto">Compras</string>
+    <string name="No_Mes">Mes 1</string>
+    <string name="Cant_gasto">$150</string>
+    <string name="btn_calendario">Calendario</string>
+    <string name="categor_asbtn">Categorías</string>
+    <string name="gr_ficosbtn">Gráficos</string>
+    <string name="calendario_txt">Calendario</string>
+    <string name="categor_astxt">Categorías</string>
+    <string name="gr_ficostxt">Gráficos</string>
+    <string name="mensual_btn">Mensual</string>
+    <string name="semanal_btn">Semanal</string>
+    <string name="gastos_excesivos">Gastos Excesivos</string>
+    <string name="grafica">GRAFICA</string>
+    <string name="meta_mensual_500">Meta mensual: $500</string>
 </resources>
