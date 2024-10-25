@@ -4,21 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TabItem
-            android:id="@+id/tab_gasto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gasto" />
-        <TabItem
-            android:id="@+id/tab_ingreso"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ingreso" />
-    </TabLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
