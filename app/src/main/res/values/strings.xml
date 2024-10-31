@@ -28,4 +28,11 @@
     <string name="gastos_excesivos">Gastos Excesivos</string>
     <string name="grafica">GRAFICA</string>
     <string name="meta_mensual_500">Meta mensual: $500</string>
+
+    <string-array name="metodos_pago">
+        <item>Tarjeta</item>
+        <item>Efectivo</item>
+        <item>Transferencia</item>
+    </string-array>
+
 </resources>
