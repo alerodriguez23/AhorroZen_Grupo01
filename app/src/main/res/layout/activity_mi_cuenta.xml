@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:id="@+id/micuenta">
 
 
 
@@ -51,7 +52,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/gastos"
-                android:src="@drawable/costo" />
+                android:src="@drawable/costo"
+                android:onClick="Gastos"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -73,6 +75,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/usuario"
                 android:src="@drawable/perfil1"
+                android:onClick="irPerfil"
                 />
 
             <TextView
@@ -124,13 +127,6 @@
                 android:textSize="18sp"
                 android:textColor="#000000"/>
 
-            <TextView
-                android:id="@+id/tv_tipo_usuario"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Usuario Premium"
-                android:textSize="14sp"
-                android:textColor="#808080"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -145,18 +141,6 @@
         android:padding="12dp"
         android:backgroundTint="#D1D1D1"
         android:layout_marginBottom="12dp"/>
-
-    <!-- Contraseña -->
-    <EditText
-        android:id="@+id/et_contrasena"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña"
-        android:text="xxxxxxxxxxxx"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:backgroundTint="#D1D1D1"
-        android:layout_marginBottom="4dp"/>
 
     <!-- Olvidaste tu contraseña -->
     <TextView
@@ -177,7 +161,8 @@
         android:text="Cambiar Contraseña"
         android:background="#000000"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:onClick="CambiarContraseña"/>
 
     <!-- Tarjetas de Crédito -->
     <TextView

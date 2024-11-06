@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:id="@+id/registroGatos">
 
     <!-- Botones de opciones -->
     <LinearLayout
@@ -49,7 +50,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/gastos"
-                android:src="@drawable/costo" />
+                android:src="@drawable/costo"
+                android:onClick="Gastos"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,12 +73,14 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/usuario"
                 android:src="@drawable/perfil1"
+                android:onClick="irPerfil"
                  />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:minWidth="48dp"
                 android:text="@string/usuario" />
         </LinearLayout>
 
@@ -95,15 +99,13 @@
         android:paddingTop="30dp"/>
 
     <!-- Motivo del gasto -->
-    <EditText
-        android:id="@+id/et_motivo_gasto"
+    <Spinner
+        android:id="@+id/sp_categoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese el motivo"
-        android:inputType="text"
-        android:padding="12dp"
-        android:backgroundTint="#D1D1D1"
-        android:layout_marginBottom="12dp"/>
+        android:layout_marginBottom="12dp"
+        android:entries="@array/metodos_pago"
+        android:minHeight="48dp" />
 
     <!-- Monto del gasto -->
     <EditText
@@ -152,7 +154,8 @@
         android:text="Guardar"
         android:background="#000000"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="175dp"/>
+        android:layout_marginBottom="175dp"
+        android:onClick="guardarEgreso"/>
 
     <!-- Barra inferior -->
     <LinearLayout

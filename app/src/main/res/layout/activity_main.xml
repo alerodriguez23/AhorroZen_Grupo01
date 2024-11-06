@@ -53,6 +53,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/gastos"
                 android:src="@drawable/costo"
+                android:onClick="Gastos"
                 tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
 
             <TextView
@@ -75,7 +76,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/usuario"
                 android:src="@drawable/perfil1"
-                tools:ignore="DuplicateSpeakableTextCheck" />
+                android:onClick="irPerfil"/>
 
             <TextView
                 android:layout_width="wrap_content"
