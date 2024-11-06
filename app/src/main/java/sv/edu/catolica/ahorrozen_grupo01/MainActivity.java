@@ -1,7 +1,9 @@
 package sv.edu.catolica.ahorrozen_grupo01;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +24,15 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void irPerfil(View view) {
+        Intent perfil = new Intent(MainActivity.this, miCuenta.class);
+        startActivity(perfil);
+    }
+
+    public void Gastos(View view) {
+        Intent gastos = new Intent(MainActivity.this, miCuenta.class);
+        startActivity(gastos);
     }
 }

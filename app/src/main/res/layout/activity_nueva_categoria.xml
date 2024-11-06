@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:id="@+id/nuevaCategoria">
 
     <!-- Botones de opciones -->
     <LinearLayout
@@ -47,7 +48,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/gastos"
-                android:src="@drawable/costo"/>
+                android:src="@drawable/costo"
+                android:onClick="Gastos"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,7 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/usuario"
-                android:src="@drawable/perfil1" />
+                android:src="@drawable/perfil1"
+                android:onClick="irPerfil"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -110,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:entries="@array/category_types"
+        android:entries="tipe"
         android:minHeight="48dp" />
 
     <Button
@@ -141,7 +144,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/calendario_btn"
-                android:src="@drawable/calendario" />
+                android:src="@drawable/calendario"
+                android:onClick="Calendario"/>
 
             <TextView
                 android:layout_width="wrap_content"
