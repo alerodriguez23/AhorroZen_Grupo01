@@ -20,10 +20,10 @@
 
     <!-- Campo Nombre -->
     <EditText
-        android:id="@+id/et_nombre"
+        android:id="@+id/et_correo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su nombre"
+        android:hint="Ingrese su correo"
         android:inputType="textPersonName"
         android:padding="12dp"
         android:backgroundTint="#D1D1D1"
@@ -45,7 +45,7 @@
         android:id="@+id/et_nueva_contrasena"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nueva Contraseña"
+        android:hint="Confirmar Contraseña"
         android:inputType="textPassword"
         android:padding="12dp"
         android:backgroundTint="#D1D1D1"
@@ -59,7 +59,8 @@
         android:text="Guardar"
         android:background="#000000"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:onClick="actualizarContrasena"/>
 
     <!-- Recomendaciones de la contraseña -->
     <TextView

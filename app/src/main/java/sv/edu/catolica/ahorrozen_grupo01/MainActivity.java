@@ -35,4 +35,9 @@ public class MainActivity extends AppCompatActivity {
         Intent gastos = new Intent(MainActivity.this, miCuenta.class);
         startActivity(gastos);
     }
+
+    public void ingrsoH(View view) {
+        Intent ingrsoH = new Intent(MainActivity.this, IngresosActivity.class);
+        startActivity(ingrsoH);
+    }
 }

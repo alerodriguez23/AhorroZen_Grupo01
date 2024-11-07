@@ -28,4 +28,14 @@ public class login extends AppCompatActivity {
         Intent inicio = new Intent(login.this, MainActivity.class);
         startActivity(inicio);
     }
+
+    public void cambiarContra(View view) {
+        Intent cambiarContra = new Intent(login.this, cambiarContra.class);
+        startActivity(cambiarContra);
+    }
+
+    public void Registro(View view) {
+        Intent Registro = new Intent(login.this, registrarse.class);
+        startActivity(Registro);
+    }
 }

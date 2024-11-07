@@ -2,6 +2,7 @@ package sv.edu.catolica.ahorrozen_grupo01;
 
 import android.app.DatePickerDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -171,5 +172,30 @@ public class registro_gastos extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Error al registrar el egreso", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void GastosG(View view) {
+        Intent GastosG = new Intent(registro_gastos.this, registro_gastos.class);
+        startActivity(GastosG);
+    }
+
+    public void PerfilG(View view) {
+        Intent perfil = new Intent(registro_gastos.this, miCuenta.class);
+        startActivity(perfil);
+    }
+
+    public void CalenG(View view) {
+        Intent CalenG = new Intent(registro_gastos.this, CalendarioV.class);
+        startActivity(CalenG);
+    }
+
+    public void CatG(View view) {
+        Intent CatG = new Intent(registro_gastos.this, categorias.class);
+        startActivity(CatG);
+    }
+
+    public void ingresoG(View view) {
+        Intent ingresoG = new Intent(registro_gastos.this, IngresosActivity.class);
+        startActivity(ingresoG);
     }
 }
