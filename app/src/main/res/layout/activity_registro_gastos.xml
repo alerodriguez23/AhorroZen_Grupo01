@@ -100,6 +100,13 @@
         android:paddingTop="30dp"/>
 
     <!-- Motivo del gasto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="categoria del Gasto"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
     <Spinner
         android:id="@+id/sp_categoria"
         android:layout_width="match_parent"
@@ -120,6 +127,13 @@
         android:layout_marginBottom="12dp"/>
 
     <!-- Método de Pago -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="metodo de Gasto"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
     <Spinner
         android:id="@+id/sp_metodo_pago"
         android:layout_width="match_parent"
@@ -155,7 +169,7 @@
         android:text="Guardar"
         android:background="#000000"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="175dp"
+        android:layout_marginBottom="5dp"
         android:onClick="guardarEgreso"/>
 
     <!-- Barra inferior -->

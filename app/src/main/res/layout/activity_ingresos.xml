@@ -87,7 +87,90 @@
         </LinearLayout>
 
     </LinearLayout>
+    <!-- Encabezado -->
+    <TextView
+        android:id="@+id/registro_gastos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTRE UN INGRESO"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:layout_gravity="center"
+        android:paddingBottom="35dp"
+        android:paddingTop="30dp"/>
 
+    <!-- Motivo del gasto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="categoria del Ingreso"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
+    <Spinner
+        android:id="@+id/sp_categoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:entries="@array/metodos_pago"
+        android:minHeight="48dp" />
+
+    <!-- Monto del gasto -->
+    <EditText
+        android:id="@+id/et_monto_ingreso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el monto"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:backgroundTint="#D1D1D1"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Método de Pago -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="metodo del Ingreso"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
+    <Spinner
+        android:id="@+id/sp_metodo_pago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:entries="@array/metodos_pago"
+        android:minHeight="48dp" />
+
+    <!-- Fecha del Gasto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha del Ingreso"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/et_fecha_ingreso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seleccione la fecha"
+        android:focusable="false"
+        android:padding="12dp"
+        android:backgroundTint="#D1D1D1"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botón Guardar -->
+    <Button
+        android:id="@+id/btn_guardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="5dp"
+        android:onClick="guardarIngreso"/>
     <!-- Barra inferior -->
     <LinearLayout
         android:layout_width="match_parent"
