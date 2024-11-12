@@ -38,7 +38,7 @@ dependencies {
     implementation libs.recyclerview
     implementation libs.car.ui.lib
     implementation libs.mpandroidchart
-
+    implementation libs.charts
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
