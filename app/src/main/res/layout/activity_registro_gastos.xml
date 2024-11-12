@@ -29,6 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/ingresos"
+                android:onClick="ingresoG"
                 android:src="@drawable/ganancias" />
 
             <TextView
@@ -51,7 +52,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/gastos"
                 android:src="@drawable/costo"
-                android:onClick="Gastos"/>
+                android:onClick="GastosG"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -73,7 +74,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/usuario"
                 android:src="@drawable/perfil1"
-                android:onClick="irPerfil"
+                android:onClick="PerfilG"
                  />
 
             <TextView
@@ -99,6 +100,13 @@
         android:paddingTop="30dp"/>
 
     <!-- Motivo del gasto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="categoria del Gasto"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
     <Spinner
         android:id="@+id/sp_categoria"
         android:layout_width="match_parent"
@@ -119,6 +127,13 @@
         android:layout_marginBottom="12dp"/>
 
     <!-- Método de Pago -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="metodo de Gasto"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
     <Spinner
         android:id="@+id/sp_metodo_pago"
         android:layout_width="match_parent"
@@ -154,7 +169,7 @@
         android:text="Guardar"
         android:background="#000000"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="175dp"
+        android:layout_marginBottom="5dp"
         android:onClick="guardarEgreso"/>
 
     <!-- Barra inferior -->
@@ -177,7 +192,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/calendario_txt"
-                android:src="@drawable/calendario"/>
+                android:src="@drawable/calendario"
+                android:onClick="CalenG"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -198,7 +214,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/categor_astxt"
-                android:src="@drawable/categorie"/>
+                android:src="@drawable/categorie"
+                android:onClick="CatG"/>
 
             <TextView
                 android:layout_width="wrap_content"

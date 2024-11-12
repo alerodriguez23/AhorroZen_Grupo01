@@ -24,33 +24,31 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class registro_gastos extends AppCompatActivity {
-
-    private EditText etFechaGasto;
+public class IngresosActivity extends AppCompatActivity {
+    private EditText etFechaIngreso;
     private Spinner spCategoria, spMetodoPago;
-    private EditText etMontoGasto;
+    private EditText etMontoIngreso;
     private Button btnGuardar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_registro_gastos);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.registro_gastos), (v, insets) -> {
+        setContentView(R.layout.activity_ingresos);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        etFechaGasto = findViewById(R.id.et_fecha_gasto);
+        etFechaIngreso = findViewById(R.id.et_fecha_ingreso);
         spCategoria = findViewById(R.id.sp_categoria);
         spMetodoPago = findViewById(R.id.sp_metodo_pago);
-        etMontoGasto = findViewById(R.id.et_monto_gasto);
+        etMontoIngreso = findViewById(R.id.et_monto_ingreso);
         btnGuardar = findViewById(R.id.btn_guardar);
-        etFechaGasto.setOnClickListener(v -> showDatePickerDialog());
+        etFechaIngreso.setOnClickListener(v -> showDatePickerDialog());
         cargarCategorias();
         cargarMetodosPago();
     }
-
     private void showDatePickerDialog() {
         // Obtiene la fecha actual
         Calendar calendar = Calendar.getInstance();
@@ -60,15 +58,40 @@ public class registro_gastos extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog
                 ( getApplicationContext(),
-                (view, selectedYear, selectedMonth, selectedDay) -> {
-                    // Ajusta el formato de fecha y muestra en el EditText
-                    String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
-                    etFechaGasto.setText(selectedDate);
-                },
-                year, month, day
-        );
+                        (view, selectedYear, selectedMonth, selectedDay) -> {
+                            // Ajusta el formato de fecha y muestra en el EditText
+                            String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+                            etFechaIngreso.setText(selectedDate);
+                        },
+                        year, month, day
+                );
 
         datePickerDialog.show();
+    }
+
+    public void GastosI(View view) {
+        Intent GastosI = new Intent(IngresosActivity.this, registro_gastos.class);
+        startActivity(GastosI);
+    }
+
+    public void PerfilI(View view) {
+        Intent PerfilI = new Intent(IngresosActivity.this, miCuenta.class);
+        startActivity(PerfilI);
+    }
+
+    public void calenI(View view) {
+        Intent calenI = new Intent(IngresosActivity.this, CalendarioV.class);
+        startActivity(calenI);
+    }
+
+    public void catI(View view) {
+        Intent catI = new Intent(IngresosActivity.this, categorias.class);
+        startActivity(catI);
+    }
+
+    public void ingresos(View view) {
+        Intent ingresos = new Intent(IngresosActivity.this, IngresosActivity.class);
+        startActivity(ingresos);
     }
 
     private void cargarCategorias() {
@@ -89,6 +112,7 @@ public class registro_gastos extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spCategoria.setAdapter(adapter);
     }
+
     private void cargarMetodosPago() {
         List<String> metodosPago = new ArrayList<>();
         FinanzasBD admin = new FinanzasBD(this, "FinanzasDB", null, 1);
@@ -107,6 +131,7 @@ public class registro_gastos extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spMetodoPago.setAdapter(adapter);
     }
+
     private long obtenerIdCategoria(String nombreCategoria, SQLiteDatabase db) {
         Cursor cursor = db.rawQuery("SELECT idCategoria FROM Categoria WHERE nombre = ?", new String[]{nombreCategoria});
         long idCategoria = -1;
@@ -127,14 +152,14 @@ public class registro_gastos extends AppCompatActivity {
         return idMetodoPago;
     }
 
-    public void guardarEgreso(View view) {
+    public void guardarIngreso(View view) {
         String categoriaSeleccionada = spCategoria.getSelectedItem().toString();
         String metodoPagoSeleccionado = spMetodoPago.getSelectedItem().toString();
-        String montoStr = etMontoGasto.getText().toString();
-        String fecha = etFechaGasto.getText().toString();
+        String montoStr = etMontoIngreso.getText().toString();
+        String fecha = etFechaIngreso.getText().toString();
 
-        if (montoStr.isEmpty() || fecha.isEmpty()) {
-            Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+        if (montoStr.isEmpty()) {
+            Toast.makeText(this, "Por favor, ingrese un monto", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -149,53 +174,52 @@ public class registro_gastos extends AppCompatActivity {
 
         FinanzasBD admin = new FinanzasBD(this, "FinanzasDB", null, 1);
         SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues registroIngreso = new ContentValues();
+        registroIngreso.put("idUsuario", idUsuario);
+        registroIngreso.put("idCategoria", obtenerIdCategoria(categoriaSeleccionada, db));
+        registroIngreso.put("idMetodoPago", obtenerIdMetodoPago(metodoPagoSeleccionado, db));
+        registroIngreso.put("monto", monto);
+        registroIngreso.put("fecha", fecha);
 
-        long idCategoria = obtenerIdCategoria(categoriaSeleccionada, db);
-        long idMetodoPago = obtenerIdMetodoPago(metodoPagoSeleccionado, db);
-
-        ContentValues registro = new ContentValues();
-        registro.put("idUsuario", idUsuario);
-        registro.put("idCategoria", idCategoria);
-        registro.put("idMetodoPago", idMetodoPago);
-        registro.put("monto", monto);
-        registro.put("fecha", fecha);
-
-        long resultado = db.insert("Egreso", null, registro);
-        db.close();
-
-        if (resultado != -1) {
-            Toast.makeText(this, "Egreso registrado con éxito", Toast.LENGTH_SHORT).show();
-            etMontoGasto.setText("");
-            etFechaGasto.setText("");
-            spCategoria.setSelection(0);
-            spMetodoPago.setSelection(0);
-        } else {
-            Toast.makeText(this, "Error al registrar el egreso", Toast.LENGTH_SHORT).show();
+        long resultadoIngreso = db.insert("Ingreso", null, registroIngreso);
+        if (resultadoIngreso == -1) {
+            Toast.makeText(this, "Error al guardar el ingreso", Toast.LENGTH_SHORT).show();
+            db.close();
+            return;
         }
-    }
 
-    public void GastosG(View view) {
-        Intent GastosG = new Intent(registro_gastos.this, registro_gastos.class);
-        startActivity(GastosG);
-    }
+        Cursor cursorSaldo = db.rawQuery("SELECT saldoTotal FROM Saldo WHERE idUsuario = ?", new String[]{String.valueOf(idUsuario)});
+        if (cursorSaldo.moveToFirst()) {
+            double saldoActual = cursorSaldo.getDouble(0);
+            double nuevoSaldo = saldoActual + monto;
 
-    public void PerfilG(View view) {
-        Intent perfil = new Intent(registro_gastos.this, miCuenta.class);
-        startActivity(perfil);
-    }
+            ContentValues valoresSaldo = new ContentValues();
+            valoresSaldo.put("saldoTotal", nuevoSaldo);
+            valoresSaldo.put("fechaActualizacion", fecha);
 
-    public void CalenG(View view) {
-        Intent CalenG = new Intent(registro_gastos.this, CalendarioV.class);
-        startActivity(CalenG);
-    }
+            int resultadoSaldo = db.update("Saldo", valoresSaldo, "idUsuario = ?", new String[]{String.valueOf(idUsuario)});
 
-    public void CatG(View view) {
-        Intent CatG = new Intent(registro_gastos.this, categorias.class);
-        startActivity(CatG);
-    }
+            if (resultadoSaldo != -1) {
+                Toast.makeText(this, "Ingreso guardado y saldo actualizado", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Error al actualizar el saldo", Toast.LENGTH_SHORT).show();
+            }
 
-    public void ingresoG(View view) {
-        Intent ingresoG = new Intent(registro_gastos.this, IngresosActivity.class);
-        startActivity(ingresoG);
+        } else {
+            ContentValues nuevoSaldo = new ContentValues();
+            nuevoSaldo.put("idUsuario", idUsuario);
+            nuevoSaldo.put("saldoTotal", monto);
+            nuevoSaldo.put("fechaActualizacion", fecha);
+
+            long resultadoNuevoSaldo = db.insert("Saldo", null, nuevoSaldo);
+
+            if (resultadoNuevoSaldo != -1) {
+                Toast.makeText(this, "Ingreso guardado y saldo inicial registrado", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Error al guardar el saldo inicial", Toast.LENGTH_SHORT).show();
+            }
+        }
+        cursorSaldo.close();
+        db.close();
     }
 }

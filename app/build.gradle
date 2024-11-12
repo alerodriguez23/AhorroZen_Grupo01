@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "sv.edu.catolica.ahorrozen_grupo01"
-        minSdk 24
+        minSdk 28
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -37,8 +37,8 @@ dependencies {
     implementation libs.mpandroidchart
     implementation libs.recyclerview
     implementation libs.car.ui.lib
-
-
+    implementation libs.mpandroidchart
+    implementation libs.charts
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core

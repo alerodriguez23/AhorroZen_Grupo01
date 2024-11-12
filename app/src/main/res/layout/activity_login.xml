@@ -54,7 +54,8 @@
             android:textSize="14sp"
             android:textColor="#808080"
             android:layout_gravity="end"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="24dp"
+            android:onClick="cambiarContra"/>
 
         <!-- Botón de Iniciar Sesión -->
         <Button
@@ -116,7 +117,8 @@
                 android:text=" Regístrate"
                 android:textSize="14sp"
                 android:textColor="#0000FF"
-                android:paddingStart="4dp"/>
+                android:paddingStart="4dp"
+                android:onClick="Registro"/>
         </LinearLayout>
 
     </LinearLayout>

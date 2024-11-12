@@ -35,7 +35,15 @@ public class miCuenta extends AppCompatActivity {
         // Cargar los datos del usuario
         cargarDatosUsuario();
     }
+    public void Perfil(View view) {
+        Intent perfil = new Intent(miCuenta.this, miCuenta.class);
+        startActivity(perfil);
+    }
 
+    public void GastosP(View view) {
+        Intent gastos = new Intent(miCuenta.this, miCuenta.class);
+        startActivity(gastos);
+    }
     private void cargarDatosUsuario() {
         SharedPreferences preferences = getSharedPreferences("miAppPrefs", MODE_PRIVATE);
         long idUsuario = preferences.getLong("idUsuario", -1);
@@ -62,5 +70,20 @@ public class miCuenta extends AppCompatActivity {
     public void CambiarContraseña(View view) {
         Intent cambiarContra = new Intent(miCuenta.this, cambiarContra.class);
         startActivity(cambiarContra);
+    }
+
+    public void CalendarioP(View view) {
+        Intent calendario = new Intent(miCuenta.this, CalendarioV.class);
+        startActivity(calendario);
+    }
+
+    public void CategoriasP(View view) {
+        Intent cat = new Intent(miCuenta.this, categorias.class);
+        startActivity(cat);
+    }
+
+    public void ingresoP(View view) {
+        Intent ingresoP = new Intent(miCuenta.this, IngresosActivity.class);
+        startActivity(ingresoP);
     }
 }

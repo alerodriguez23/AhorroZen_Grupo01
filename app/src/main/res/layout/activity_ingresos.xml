@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:id="@+id/nuevaCategoria">
+    android:id="@+id/main"
+    android:padding="15dp">
+
 
     <!-- Botones de opciones -->
     <LinearLayout
@@ -27,8 +30,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/ingresos"
-                android:onClick="ingresoCat"
-                android:src="@drawable/ganancias"/>
+                android:src="@drawable/ganancias"
+                android:onClick="ingresos"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -50,7 +54,8 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/gastos"
                 android:src="@drawable/costo"
-                android:onClick="GastosCat"/>
+                android:onClick="GastosI"
+                tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -72,7 +77,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/usuario"
                 android:src="@drawable/perfil1"
-                android:onClick="irPerfilCat"/>
+                android:onClick="PerfilI"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -82,41 +87,95 @@
         </LinearLayout>
 
     </LinearLayout>
-
+    <!-- Encabezado -->
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/registro_gastos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Añadir Categoría"
+        android:text="REGISTRE UN INGRESO"
         android:textSize="24sp"
+        android:textColor="#000000"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp" />
+        android:paddingBottom="35dp"
+        android:paddingTop="30dp"/>
 
-    <EditText
-        android:id="@+id/category_name"
+    <!-- Motivo del gasto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="categoria del Ingreso"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
+    <Spinner
+        android:id="@+id/sp_categoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Nombre de la Categoría"
+        android:layout_marginBottom="12dp"
+        android:entries="@array/metodos_pago"
         android:minHeight="48dp" />
 
+    <!-- Monto del gasto -->
+    <EditText
+        android:id="@+id/et_monto_ingreso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el monto"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:backgroundTint="#D1D1D1"
+        android:layout_marginBottom="12dp"/>
 
-
-    <Button
-        android:id="@+id/btn_save"
+    <!-- Método de Pago -->
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:layout_marginBottom="150dp"
-        android:layout_gravity="center"
-        android:onClick="agregarCategoria"/>
+        android:text="metodo del Ingreso"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
+    <Spinner
+        android:id="@+id/sp_metodo_pago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:entries="@array/metodos_pago"
+        android:minHeight="48dp" />
 
+    <!-- Fecha del Gasto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha del Ingreso"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:paddingBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/et_fecha_ingreso"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seleccione la fecha"
+        android:focusable="false"
+        android:padding="12dp"
+        android:backgroundTint="#D1D1D1"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Botón Guardar -->
+    <Button
+        android:id="@+id/btn_guardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:background="#000000"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="5dp"
+        android:onClick="guardarIngreso"/>
     <!-- Barra inferior -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -131,15 +190,16 @@
                 android:id="@+id/btnCalendario"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:contentDescription="@string/calendario_btn"
+                android:contentDescription="@string/calendario_txt"
                 android:src="@drawable/calendario"
-                android:onClick="CalendarioCat"/>
+                android:onClick="calenI"
+                tools:ignore="DuplicateSpeakableTextCheck,ImageContrastCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/calendario" />
+                android:text="@string/btn_calendario" />
         </LinearLayout>
 
         <LinearLayout
@@ -153,15 +213,16 @@
                 android:id="@+id/btnCategorias"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:contentDescription="@string/categor_as_btn"
+                android:contentDescription="@string/categor_astxt"
                 android:src="@drawable/categorie"
-                android:onClick="verCategorias"/>
+                android:onClick="catI"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/categor_as" />
+                android:text="@string/categor_asbtn" />
         </LinearLayout>
 
         <LinearLayout
@@ -175,16 +236,18 @@
                 android:id="@+id/btnGraficos"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:contentDescription="@string/gr_ficos_btn"
-                android:src="@drawable/graficos" />
+                android:contentDescription="@string/gr_ficostxt"
+                android:src="@drawable/graficos"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/gr_ficos" />
+                android:text="@string/gr_ficosbtn" />
         </LinearLayout>
 
     </LinearLayout>
+
 
 </LinearLayout>

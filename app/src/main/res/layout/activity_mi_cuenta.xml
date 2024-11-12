@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/ingresos"
+                android:onClick="ingresoP"
                 android:src="@drawable/ganancias" />
 
             <TextView
@@ -53,7 +54,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/gastos"
                 android:src="@drawable/costo"
-                android:onClick="Gastos"/>
+                android:onClick="GastosP"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,7 +76,7 @@
                 android:layout_height="50dp"
                 android:contentDescription="@string/usuario"
                 android:src="@drawable/perfil1"
-                android:onClick="irPerfil"
+                android:onClick="Perfil"
                 />
 
             <TextView
@@ -136,7 +137,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Correo"
-        android:text="correo@gmail.com"
         android:inputType="textEmailAddress"
         android:padding="12dp"
         android:backgroundTint="#D1D1D1"
@@ -231,7 +231,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/calendario_txt"
-                android:src="@drawable/calendario"/>
+                android:src="@drawable/calendario"
+                android:onClick="CalendarioP"/>
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -252,7 +254,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:contentDescription="@string/categor_astxt"
-                android:src="@drawable/categorie"/>
+                android:src="@drawable/categorie"
+                android:onClick="CategoriasP"/>
 
             <TextView
                 android:layout_width="wrap_content"
